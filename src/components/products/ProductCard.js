@@ -34,7 +34,6 @@ const ProductCard = ({ product }) => {
             width="18"
             height="18"
             fill="#ffffff"
-            class="bi bi-bag-dash-fill"
             viewBox="0 0 16 16"
             className="hover:ease-in duration-300 group-hover/bag:fill-black"
           >

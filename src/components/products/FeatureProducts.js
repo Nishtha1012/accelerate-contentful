@@ -9,13 +9,14 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "./product.css";
 import ProductCard from "./ProductCard";
+import Skeleton from "react-loading-skeleton";
 
 const FeatureProducts = () => {
   const { data, error, loading } = useQuery(GET_FEATURE_PRODUCTS);
   const [feaProducts, setfeaProducts] = useState();
   useEffect(() => {
     if (data) {
-      console.log(data.featuredProductsCollection.items);
+      // console.log(data.featuredProductsCollection.items);
       setfeaProducts(data.featuredProductsCollection.items);
     }
   }, [data]);
@@ -46,14 +47,20 @@ const FeatureProducts = () => {
           navigation={true}
           modules={[Navigation]}
         >
-          {feaProducts &&
+          {feaProducts ? (
             feaProducts.map((product, index) => (
-              <div className="relative m-5" key={index}>
-                <SwiperSlide className="hover:cursor-pointer mx-auto max-w-['205px']">
-                  <ProductCard product={product} />
-                </SwiperSlide>
-              </div>
-            ))}
+              // <div key={index} className="relative m-5">
+              <SwiperSlide
+                className="hover:cursor-pointer mx-auto max-w-['205px'] relative m-5"
+                key={index}
+              >
+                <ProductCard product={product} />
+              </SwiperSlide>
+              // </div>
+            ))
+          ) : (
+            <Skeleton count={1} height={430} />
+          )}
         </Swiper>
       </div>
     </div>

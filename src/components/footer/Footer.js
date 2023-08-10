@@ -5,6 +5,7 @@ import CopyRight from "./CopyRight";
 import NewsLetter from "./NewsLetter";
 import Socials from "./Socials";
 import { Link } from "react-router-dom";
+import "react-loading-skeleton/dist/skeleton.css";
 
 const Footer = () => {
   const { data, error, loading } = useQuery(GET_FOOTER_DATA);
@@ -43,11 +44,8 @@ const Footer = () => {
                   </h3>
                   <ul>
                     {list.listItemsCollection.items.map((item, index) => (
-                      <Link to={item.slug}>
-                        <li
-                          key={index}
-                          className="font-light text-sm text-gray-400 my-2 cursor-auto hover:text-red-800 hover:cursor-pointer "
-                        >
+                      <Link to={item.slug} key={index}>
+                        <li className="font-light text-sm text-gray-400 my-2 cursor-auto hover:text-red-800 hover:cursor-pointer ">
                           {item.itemName}
                         </li>
                       </Link>

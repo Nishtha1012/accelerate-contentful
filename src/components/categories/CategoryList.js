@@ -9,6 +9,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "../products/product.css";
 import { Link } from "react-router-dom";
+import Skeleton from "react-loading-skeleton";
 
 const CategoryList = () => {
   const { data, error, loading } = useQuery(GET_TOP_CATEGORIES);
@@ -20,9 +21,11 @@ const CategoryList = () => {
   }, [data]);
   return (
     <div>
-      <h4 className="font-bold text-2xl text-center mt-10">
-        Shop By Categories
-      </h4>
+      {categories && (
+        <h4 className="font-bold text-2xl text-center mt-10">
+          Shop By Categories
+        </h4>
+      )}
       <div>
         <div className="flex m-5 mx-auto">
           <Swiper
@@ -46,7 +49,7 @@ const CategoryList = () => {
             modules={[Navigation]}
           >
             s
-            {categories &&
+            {categories ? (
               categories.map((category, index) => (
                 <SwiperSlide
                   key={index}
@@ -65,7 +68,10 @@ const CategoryList = () => {
                     </div>
                   </Link>
                 </SwiperSlide>
-              ))}
+              ))
+            ) : (
+              <Skeleton count={1} height={600} />
+            )}
           </Swiper>
         </div>
       </div>

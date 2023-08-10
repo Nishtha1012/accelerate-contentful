@@ -1,11 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import DownloadLinks from "./DownloadLinks";
 import Payments from "./Payments";
 
 const Socials = ({ socials }) => {
-  console.log(socials);
   let toDisplay = socials && socials.map((social) => social.type);
-  console.log(toDisplay);
 
   return (
     <div className=" border-t border-gray-500 flex items-center max-md:flex-col max-sm:flex-col max-sm:items-start max-sm:p-2">
@@ -74,9 +72,9 @@ const Socials = ({ socials }) => {
                 <g
                   id="Page-1"
                   stroke="none"
-                  stroke-width="1"
+                  strokeWidth="1"
                   fill="none"
-                  fill-rule="evenodd"
+                  fillRule="evenodd"
                 >
                   <g
                     id="Dribbble-Light-Preview"
@@ -107,9 +105,9 @@ const Socials = ({ socials }) => {
                 <g
                   id="Page-1"
                   stroke="none"
-                  stroke-width="1"
+                  strokeWidth="1"
                   fill="none"
-                  fill-rule="evenodd"
+                  fillRule="evenodd"
                 >
                   <g
                     id="Dribbble-Light-Preview"
@@ -131,7 +129,7 @@ const Socials = ({ socials }) => {
           {toDisplay && toDisplay.includes("pinterest") && (
             <div className="p-2 border-2 border-gray-400 rounded-full w-10 me-2  hover:border-red-600 group">
               <svg
-                enable-background="new 0 0 56.693 56.693"
+                enableBackground="new 0 0 56.693 56.693"
                 height="20"
                 id="Layer_1"
                 version="1.1"
